@@ -71,7 +71,11 @@ GROUP BY
     customer_number,
     customer_name,
     age)
-    
+
+/*---------------------------------------------------------------------------
+  3) Final Query: Combines all product results into one output
+---------------------------------------------------------------------------*/
+
 SELECT 
 	customer_key,
     customer_number,
