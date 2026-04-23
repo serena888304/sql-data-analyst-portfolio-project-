@@ -1,0 +1,53 @@
+/*
+===============================================================================
+Cumulative Analysis
+===============================================================================
+Purpose:
+    - To calculate running totals or moving averages for key metrics.
+    - To track performance over time cumulatively.
+    - Useful for growth analysis or identifying long-term trends.
+
+SQL Functions Used:
+    - Window Functions: SUM() OVER(), AVG() OVER()
+===============================================================================
+*/
+
+-- Calculate the total sales per month
+-- and running total of sales over time
+
+SELECT
+	order_date_mth,
+	total_sales,
+	-- window functions
+	SUM(total_sales)
+	OVER(PARTITION BY order_date_mth ORDER BY order_date_mth) AS running_total_sales
+FROM
+(
+SELECT
+	date_format(order_date, '%Y-%m-01') as order_date_mth,
+    SUM(sales_amount) as total_sales
+FROM DataWarehouseAnalytics.fact_sales
+WHERE order_date IS NOT NULL
+GROUP BY order_date_mth
+)t;
+
+
+-- cumulative data over year
+SELECT
+	order_date_year,
+	total_sales,
+	-- window functions
+	SUM(total_sales)
+	OVER(ORDER BY order_date_year) AS running_total_sales,
+    ROUND(AVG(avg_sales)
+    OVER(ORDER BY order_date_year)) AS moving_avg_sales  -- use FLOOR(AVG(sales_amount)) if find difference
+FROM
+(
+SELECT
+	date_format(order_date, '%Y-01-01') as order_date_year,
+    SUM(sales_amount) as total_sales,
+    AVG(sales_amount) as avg_sales 
+FROM DataWarehouseAnalytics.fact_sales
+WHERE order_date IS NOT NULL
+GROUP BY order_date_year
+)t;
