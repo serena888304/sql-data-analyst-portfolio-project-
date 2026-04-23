@@ -22,11 +22,17 @@ Techniques: Window Functions (OVER(), PARTITION BY), Common Table Expressions (C
 
 🗺️ **Analytical Methodology**
 This project follows a structured, real-world advanced analytics roadmap to explore the dataset step-by-step:
+
 Changes Over Time: Tracking seasonality, monthly sales trends, and historical revenue growth.
+
 Cumulative Analysis: Using window functions to calculate running totals and revenue build-up over time.
+
 Performance Analysis: Benchmarking current product metrics against historical averages to identify growth or decline (e.g., finding the "Performance Gap").
+
 Part-to-Whole Analysis: Determining category market share and percentage contributions to the grand total.
+
 Data Segmentation: Bucketing customers and products into targeted business tiers (e.g., VIP vs. Regular, Price Ranges).
+
 Final Reporting: Consolidating all KPIs into a single, optimized "Customer 360" database view ready for BI tool integration.
 
 ---
