@@ -20,7 +20,7 @@ SELECT
 	total_sales,
 	-- window functions
 	SUM(total_sales)
-	OVER(PARTITION BY order_date_mth ORDER BY order_date_mth) AS running_total_sales
+	OVER(ORDER BY order_date_mth) AS running_total_sales
 FROM
 (
 SELECT
