@@ -1,5 +1,5 @@
 # sql-data-analyst-portfolio-project-
-An advanced SQL portfolio project building a retail data reporting layer.
+This project is the advanced analysis and reporting-layer phase of a two-part SQL portfolio project. It builds on the initial EDA work by applying CTEs, window functions, segmentation logic, cumulative analysis, and Customer 360 reporting views.
 
 ---
 
